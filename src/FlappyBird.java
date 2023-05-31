@@ -8,7 +8,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
     public static final int WIDTH = 800, HEIGHT = 800;
 
 
-
+    public Color birdColor = Color.pink;
     public Rectangle bird;
 
     public int ticks, yMotion, score, MAX = 0, Coins = 0;
@@ -110,6 +110,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
                 if (column.y == 0 && bird.x + bird.width / 2 > column.x + column.width / 2 - 10 && bird.x + bird.width / 2 < column.x + column.width / 2 + 10) {
                     score++;
                     Coins++;
+
                 }
                 if (column.intersects(bird)) {
                     gameOver = true;
@@ -144,13 +145,16 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         g.setColor(Color.cyan);
         g.fillRect(0,0, WIDTH, HEIGHT);
 
+        g.setColor(Color.yellow);
+        g.fillOval(-100,-100, 200, 200);
+
         g.setColor(Color.orange);
         g.fillRect(0, HEIGHT - 120, WIDTH, 120);
 
         g.setColor(Color.green);
         g.fillRect(0, HEIGHT - 120, WIDTH, 20);
 
-        g.setColor(Color.pink);
+        g.setColor(birdColor);
         g.fillRect(bird.x, bird.y, bird.width, bird.height);
 
         for (Rectangle column : columns) {
@@ -233,8 +237,8 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         }
     }
 
-    public void setBirdColor() {
-
+    public void setBirdColor(Color color) {
+        birdColor = color;
     }
 
     public FlappyBird getFlappyBird() {
