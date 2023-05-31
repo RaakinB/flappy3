@@ -11,7 +11,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
 
     public Rectangle bird;
 
-    public int ticks, yMotion, score, MAX = 0;
+    public int ticks, yMotion, score, MAX = 0, Coins = 0;
     public boolean gameOver, started;
     public ArrayList<Rectangle> columns;
 
@@ -57,7 +57,9 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
             yMotion = 0;
             if (score > MAX ) {
                 MAX = score;
+                Coins += score;
             }
+
             score = 0;
 
             addColumn(true);
@@ -107,6 +109,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
             for (Rectangle column : columns) {
                 if (column.y == 0 && bird.x + bird.width / 2 > column.x + column.width / 2 - 10 && bird.x + bird.width / 2 < column.x + column.width / 2 + 10) {
                     score++;
+                    Coins++;
                 }
                 if (column.intersects(bird)) {
                     gameOver = true;
@@ -157,8 +160,12 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         g.setColor(Color.white);
 
         g.setFont(new Font("Arial", 1, 30));
-        g.drawString("High Score: " + String.valueOf(MAX), WIDTH / 2 - 300, 75);
+        g.drawString("High Score: " + MAX, WIDTH - 275, 50);
 
+        g.setColor(Color.orange);
+        g.drawString("Coins: " + Coins, WIDTH - 200, 85);
+
+        g.setColor(Color.white);
         g.setFont(new Font("Arial", 1, 100));
         if (!started) {
 //            g.setFont(new Font("Arial", 1, 30));
