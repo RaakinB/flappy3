@@ -21,47 +21,90 @@ public class Shop extends JPanel implements ActionListener {
         setFont(new Font("Arial", 1, 100));
 
 
-
-
-
-
         this.fb = fb;
 
         red = new JButton("Red");
-        red.setFont(new Font("Arial", 1, 15));
+        red.setFont(new Font("Arial", 1, 20));
         red.setVisible(true);
+        red.setBackground(Color.red.brighter());
+        red.setBorderPainted(false);
+        red.setForeground(Color.WHITE);
+        red.setFocusPainted(false);
+
         add(red);
         red.addActionListener(this);
 
         blue = new JButton("Blue");
-        blue.setFont(new Font("Arial", 1, 15));
+        blue.setFont(new Font("Arial", 1, 20));
         blue.setVisible(true);
+        blue.setBackground(Color.blue.brighter());
+        blue.setBorderPainted(false);
+        blue.setForeground(Color.WHITE);
+        blue.setFocusPainted(false);
+
         add(blue);
         blue.addActionListener(this);
 
         green = new JButton("Green");
-        green.setFont(new Font("Arial", 1, 15));
+        green.setFont(new Font("Arial", 1, 20));
         green.setVisible(true);
+        green.setBackground(Color.green.brighter());
+        green.setBorderPainted(false);
+        green.setForeground(Color.WHITE);
+        green.setFocusPainted(false);
+
         add(green);
         green.addActionListener(this);
 
         yellow = new JButton("Yellow");
-        yellow.setFont(new Font("Arial", 1, 15));
+        yellow.setFont(new Font("Arial", 1, 20));
         yellow.setVisible(true);
+        yellow.setBackground(Color.yellow.brighter());
+        yellow.setBorderPainted(false);
+        yellow.setForeground(Color.WHITE);
+        yellow.setFocusPainted(false);
+
         add(yellow);
         yellow.addActionListener(this);
 
         orange = new JButton("Orange");
-        orange.setFont(new Font("Arial", 1, 15));
+        orange.setFont(new Font("Arial", 1, 17));
         orange.setVisible(true);
+        orange.setBackground(Color.orange.brighter());
+        orange.setBorderPainted(false);
+        orange.setForeground(Color.WHITE);
+        orange.setFocusPainted(false);
+
         add(orange);
         orange.addActionListener(this);
 
         pink = new JButton("Pink");
-        pink.setFont(new Font("Arial", 1, 15));
+        pink.setFont(new Font("Arial", 1, 20));
         pink.setVisible(true);
+        pink.setBackground(Color.pink);
+        pink.setBorderPainted(false);
+        pink.setForeground(Color.WHITE);
+        pink.setFocusPainted(false);
+
         add(pink);
         pink.addActionListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -94,48 +137,48 @@ public class Shop extends JPanel implements ActionListener {
     }
 
     @Override
-    public void paint(Graphics g) {
-        super.paint(g);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-
-        g.setFont(new Font("Arial", 1, 30));
+        ImageIcon ii = new ImageIcon("src/bgFinal.jpg");
+        Image i = ii.getImage();
+        g.drawImage(i, 0, 0, null);
+        g.setFont(new Font("Arial", 1, 50));
+        g.setColor(Color.orange.darker());
+        g.drawString("SHOP", WIDTH /2 - 75, 56);
         g.setColor(Color.orange);
-        g.drawString("SHOP", WIDTH /2 - 60, 50);
+        g.drawString("SHOP", WIDTH /2 - 75, 50);
 
+        g.setColor(Color.red.darker());
+        g.fillRect(WIDTH - 200, 105, 100, 50);
         red.setSize(100,50);
         red.setLocation(WIDTH - 200,100);
-        red.setBackground(Color.red.brighter());
-        red.setBorderPainted(false);
 
+        g.setColor(Color.blue.darker());
+        g.fillRect(WIDTH - 200, 205, 100, 50);
         blue.setSize(100,50);
         blue.setLocation(WIDTH - 200,200);
-        blue.setBackground(Color.blue.brighter());
-        blue.setBorderPainted(false);
 
+        g.setColor(Color.green.darker());
+        g.fillRect(WIDTH - 200, 305, 100, 50);
         green.setSize(100,50);
         green.setLocation(WIDTH - 200,300);
-        green.setBackground(Color.green.brighter());
-        green.setBorderPainted(false);
 
+        g.setColor(Color.yellow.darker());
+        g.fillRect(WIDTH - 200, 405, 100, 50);
         yellow.setSize(100,50);
         yellow.setLocation(WIDTH - 200,400);
-        yellow.setBackground(Color.yellow.brighter());
-        yellow.setBorderPainted(false);
 
+        g.setColor(Color.orange.darker());
+        g.fillRect(WIDTH - 200, 505, 100, 50);
         orange.setSize(100,50);
         orange.setLocation(WIDTH - 200,500);
-        orange.setBackground(Color.orange.brighter());
-        orange.setBorderPainted(false);
 
+        g.setColor(Color.pink.darker());
+        g.fillRect(WIDTH - 200, 605, 100, 50);
         pink.setSize(100,50);
         pink.setLocation(WIDTH - 200,600);
-        pink.setBackground(Color.pink);
-        pink.setBorderPainted(false);
-
-
-
-
-        setBackground(Color.gray);
+        //setBackground(Color.gray);
     }
 
 
