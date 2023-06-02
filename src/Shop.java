@@ -70,7 +70,7 @@ public class Shop extends JPanel implements ActionListener {
         orange = new JButton("Orange");
         orange.setFont(new Font("Arial", 1, 17));
         orange.setVisible(true);
-        orange.setBackground(Color.orange.brighter());
+        orange.setBackground(Color.orange);
         orange.setBorderPainted(false);
         orange.setForeground(Color.WHITE);
         orange.setFocusPainted(false);
@@ -88,25 +88,6 @@ public class Shop extends JPanel implements ActionListener {
 
         add(pink);
         pink.addActionListener(this);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -150,34 +131,34 @@ public class Shop extends JPanel implements ActionListener {
         g.drawString("SHOP", WIDTH /2 - 75, 50);
 
         g.setColor(Color.red.darker());
-        g.fillRect(WIDTH - 200, 105, 100, 50);
+        g.fillRect(WIDTH - 150, 155, 100, 50);
         red.setSize(100,50);
-        red.setLocation(WIDTH - 200,100);
+        red.setLocation(WIDTH - 150,150);
 
         g.setColor(Color.blue.darker());
-        g.fillRect(WIDTH - 200, 205, 100, 50);
+        g.fillRect(WIDTH - 150, 255, 100, 50);
         blue.setSize(100,50);
-        blue.setLocation(WIDTH - 200,200);
+        blue.setLocation(WIDTH - 150,250);
 
         g.setColor(Color.green.darker());
-        g.fillRect(WIDTH - 200, 305, 100, 50);
+        g.fillRect(WIDTH - 150, 355, 100, 50);
         green.setSize(100,50);
-        green.setLocation(WIDTH - 200,300);
+        green.setLocation(WIDTH - 150,350);
 
         g.setColor(Color.yellow.darker());
-        g.fillRect(WIDTH - 200, 405, 100, 50);
+        g.fillRect(WIDTH - 150, 455, 100, 50);
         yellow.setSize(100,50);
-        yellow.setLocation(WIDTH - 200,400);
+        yellow.setLocation(WIDTH - 150,450);
 
         g.setColor(Color.orange.darker());
-        g.fillRect(WIDTH - 200, 505, 100, 50);
+        g.fillRect(WIDTH - 150, 555, 100, 50);
         orange.setSize(100,50);
-        orange.setLocation(WIDTH - 200,500);
+        orange.setLocation(WIDTH - 150,550);
 
         g.setColor(Color.pink.darker());
-        g.fillRect(WIDTH - 200, 605, 100, 50);
+        g.fillRect(WIDTH - 150, 655, 100, 50);
         pink.setSize(100,50);
-        pink.setLocation(WIDTH - 200,600);
+        pink.setLocation(WIDTH - 150,650);
         //setBackground(Color.gray);
     }
 
