@@ -244,6 +244,13 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
     public FlappyBird getFlappyBird() {
         return this;
     }
+    public int getCoins() {
+        return Coins;
+    }
+
+    public void updateCoins(int update) {
+        Coins += update;
+    }
 
 
 }

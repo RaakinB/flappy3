@@ -13,8 +13,9 @@ public class Shop extends JPanel implements ActionListener {
     public JButton orange;
     public JButton pink;
 
+    public boolean redOwned = false, blueOwned = false, greenOwned = false, yellowOwned = false, orangeOwned = false;
 
-
+    private String str1 = "100 Coins", str2 = "100 Coins", str3 = "100 Coins", str4 = "100 Coins", str5 = "100 Coins";
     private FlappyBird fb;
 
     public Shop(FlappyBird fb) {
@@ -101,17 +102,70 @@ public class Shop extends JPanel implements ActionListener {
         String text = button.getText();
 
         if (text.equals("Red")) {
-            fb.setBirdColor(Color.red);
+            if (fb.getCoins() >= 100 && !redOwned) {
+                fb.updateCoins(-100);
+                fb.setBirdColor(Color.red);
+                redOwned = true;
+                str1 = "Owned";
+                repaint();
+            } else if (redOwned) {
+
+                fb.setBirdColor(Color.red);
+            }
+
         } else if (text.equals("Blue")) {
-            fb.setBirdColor(Color.blue);
+            if (fb.getCoins() >= 100 && !blueOwned) {
+                fb.updateCoins(-100);
+                fb.setBirdColor(Color.blue);
+                blueOwned = true;
+                str2 = "Owned";
+                repaint();
+            } else if (blueOwned) {
+
+                fb.setBirdColor(Color.blue);
+            }
+
         } else if (text.equals("Green")) {
-            fb.setBirdColor(Color.green);
+            if (fb.getCoins() >= 100 && !greenOwned) {
+                fb.updateCoins(-100);
+                fb.setBirdColor(Color.green);
+                greenOwned = true;
+                str3 = "Owned";
+                repaint();
+            } else if (greenOwned) {
+
+                fb.setBirdColor(Color.green);
+            }
+
         } else if (text.equals("Yellow")) {
-            fb.setBirdColor(Color.yellow);
+            if (fb.getCoins() >= 100 && !yellowOwned) {
+                fb.updateCoins(-100);
+                fb.setBirdColor(Color.yellow);
+                yellowOwned = true;
+                str4 = "Owned";
+                repaint();
+            } else if (yellowOwned) {
+
+                fb.setBirdColor(Color.yellow);
+            }
+
         } else if (text.equals("Orange")) {
-            fb.setBirdColor(Color.orange);
+            if (fb.getCoins() >= 100 && !orangeOwned) {
+                fb.updateCoins(-100);
+                fb.setBirdColor(Color.orange);
+                orangeOwned = true;
+                str5 = "Owned";
+                repaint();
+            } else if (orangeOwned) {
+
+                fb.setBirdColor(Color.orange);
+            }
+
         } else if (text.equals("Pink")) {
-            fb.setBirdColor(Color.pink);
+
+                fb.setBirdColor(Color.pink);
+
+
         }
 
 
@@ -129,6 +183,20 @@ public class Shop extends JPanel implements ActionListener {
         g.drawString("SHOP", WIDTH /2 - 75, 56);
         g.setColor(Color.orange);
         g.drawString("SHOP", WIDTH /2 - 75, 50);
+
+        g.setFont(new Font("Arial", 1, 30));
+        g.setColor(Color.orange);
+
+
+
+
+        g.drawString(str1, WIDTH - 350, 185);
+        g.drawString(str2, WIDTH - 350, 285);
+        g.drawString(str3, WIDTH - 350, 385);
+        g.drawString(str4, WIDTH - 350, 485);
+        g.drawString(str5, WIDTH - 350, 585);
+        g.drawString("Default", WIDTH - 350, 685);
+
 
         g.setColor(Color.red.darker());
         g.fillRect(WIDTH - 150, 155, 100, 50);
