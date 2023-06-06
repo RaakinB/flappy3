@@ -7,7 +7,7 @@ import java.util.Random;
 public class FlappyBird extends JPanel implements ActionListener, MouseListener, KeyListener {
     public static final int WIDTH = 800, HEIGHT = 800;
 
-
+    public String theme = "Valley";
     public Color birdColor = Color.pink;
     public Rectangle bird;
 
@@ -45,8 +45,26 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         }
     }
     public void paintColumn(Graphics g, Rectangle column) {
-        g.setColor(Color.red.darker());
-        g.fillRect(column.x, column.y, column.width, column.height);
+        if (theme.equals("Valley")) {
+            g.setColor(Color.red.darker());
+            g.fillRect(column.x, column.y, column.width, column.height);
+        } else if (theme.equals("Hellfire")) {
+            g.setColor(Color.orange);
+            g.fillRect(column.x, column.y, column.width, column.height);
+        }else if (theme.equals("Ocean")) {
+            g.setColor(Color.blue.darker());
+            g.fillRect(column.x, column.y, column.width, column.height);
+        }else if (theme.equals("Candyland")) {
+            g.setColor(Color.pink.darker());
+            g.fillRect(column.x, column.y, column.width, column.height);
+        }else if (theme.equals("Minima")) {
+            g.setColor(Color.white.darker());
+            g.fillRect(column.x, column.y, column.width, column.height);
+        }else if (theme.equals("Void")) {
+            g.setColor(Color.gray);
+            g.fillRect(column.x, column.y, column.width, column.height);
+        }
+
     }
 
     public void jump() {
@@ -142,17 +160,75 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.cyan);
-        g.fillRect(0,0, WIDTH, HEIGHT);
+        if (theme.equals("Hellfire")) {
+            g.setColor(Color.red);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+            g.setColor(Color.black);
+            g.fillOval(-100,-100, 200, 200);
+            g.setColor(Color.black);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+            g.setColor(Color.black);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
+        } else if (theme.equals("Ocean")){
+            g.setColor(Color.cyan);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+            g.setColor(Color.yellow);
+            g.fillOval(-100,-100, 200, 200);
+            g.setColor(Color.blue.darker());
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+            g.setColor(Color.blue);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
 
-        g.setColor(Color.yellow);
-        g.fillOval(-100,-100, 200, 200);
+        } else if (theme.equals("Candyland")){
+            g.setColor(Color.MAGENTA);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+            g.setColor(Color.yellow);
+            g.fillOval(-100,-100, 200, 200);
+            g.setColor(Color.pink);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+            g.setColor(Color.pink.darker());
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
 
-        g.setColor(Color.orange);
-        g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+        }else if (theme.equals("Minima")){
+            g.setColor(Color.white);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+            g.setColor(Color.black);
+            g.fillOval(-100,-100, 200, 200);
+            g.setColor(Color.white);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+            g.setColor(Color.white);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
 
-        g.setColor(Color.green);
-        g.fillRect(0, HEIGHT - 120, WIDTH, 20);
+        }else if (theme.equals("Void")){
+            g.setColor(Color.black);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+            g.setColor(Color.gray);
+            g.fillOval(-100,-100, 200, 200);
+            g.setColor(Color.gray);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+            g.setColor(Color.lightGray);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
+
+        } else {
+            g.setColor(Color.cyan);
+            g.fillRect(0,0, WIDTH, HEIGHT);
+
+            g.setColor(Color.yellow);
+            g.fillOval(-100,-100, 200, 200);
+
+            g.setColor(Color.orange);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 120);
+
+            g.setColor(Color.green);
+            g.fillRect(0, HEIGHT - 120, WIDTH, 20);
+        }
+
+
+
+
+
+
+
 
         g.setColor(birdColor);
         g.fillRect(bird.x, bird.y, bird.width, bird.height);
@@ -161,7 +237,12 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
             paintColumn(g, column);
         }
 
-        g.setColor(Color.white);
+        if (theme.equals("Minima")) {
+            g.setColor(Color.gray);
+        } else {
+            g.setColor(Color.white);
+        }
+
 
         g.setFont(new Font("Arial", 1, 30));
         g.drawString("High Score: " + MAX, WIDTH - 275, 50);
@@ -169,7 +250,11 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         g.setColor(Color.orange);
         g.drawString("Coins: " + Coins, WIDTH - 200, 85);
 
-        g.setColor(Color.white);
+        if (theme.equals("Minima")) {
+            g.setColor(Color.gray);
+        } else {
+            g.setColor(Color.white);
+        }
         g.setFont(new Font("Arial", 1, 100));
         if (!started) {
 //            g.setFont(new Font("Arial", 1, 30));
@@ -241,9 +326,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         birdColor = color;
     }
 
-    public FlappyBird getFlappyBird() {
-        return this;
-    }
+
     public int getCoins() {
         return Coins;
     }
@@ -251,7 +334,7 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
     public void updateCoins(int update) {
         Coins += update;
     }
-
+    public void setTheme(String newTheme) {theme = newTheme;}
 
 }
 
