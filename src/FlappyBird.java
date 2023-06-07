@@ -259,14 +259,14 @@ public class FlappyBird extends JPanel implements ActionListener, MouseListener,
         if (!started) {
 //            g.setFont(new Font("Arial", 1, 30));
 //            g.drawString("High Score: " + String.valueOf(MAX), WIDTH / 2 - 300, 75);
-            g.setFont(new Font("Arial", 1, 100));
-            g.drawString("Click to Start!", 75, HEIGHT / 2 - 50);
+            g.setFont(new Font("Arial", 1, 50));
+            g.drawString("Click or Space to Start!", 125, HEIGHT / 2 - 50);
         }
         if (gameOver) {
 //            g.setFont(new Font("Arial", 1, 30));
 //            g.drawString("High Score: " +String.valueOf(MAX), WIDTH / 2 - 300, 75);
-            g.setFont(new Font("Arial", 1, 100));
-            g.drawString("Game Over", 110, HEIGHT / 2 - 50);
+            g.setFont(new Font("Arial", 1, 35));
+            g.drawString("Game Over! Click or Space to restart.", 110, HEIGHT / 2 - 50);
 
         }
         if (!gameOver && started) {
